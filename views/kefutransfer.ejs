@@ -1,0 +1,61 @@
+<div class="modal" id="TransferModal" style="display:block">
+  <div class="modal-dialog" style="margin:165px auto">
+    <div class="modal-content" style="width:730px">
+      <div class="modal-header">
+        <button type="button" class="close transfer_close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title">请选择要转接的客服</h4>
+      </div>
+      <div class="modal-body">
+        <div class="transfer_chosen">
+            <div class="scroll-wrapper transfer_cards scrollbar-macosx" style="position: relative;">
+                <div class="transfer_cards scrollbar-macosx scroll-content" style="height: 210px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
+                    <div  class="transfer_card selected" >
+                        <span class="transfer_card_img">
+                            <img src="https://mmbiz.qpic.cn/mmbiz_jpg/jSgI6LBqL3YLicpziaDBgr8lnOk3ceRz4ggGZlSTOePugXMrkk2tHVTicx074mvQ2AcdYygHibAKmSjic1S8201JBow/300?wx_fmt=jpeg/132" alt="冯春燕">
+                        </span>
+                        <div class="transfer_card_info">
+                            <p>冯春燕</p>
+                            <p class="transfer_card_assis">fcy051413</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-element scroll-x">
+                    <div class="scroll-element_outer">
+                        <div class="scroll-element_size"></div>
+                        <div class="scroll-element_track"></div>
+                        <div class="scroll-bar" style="width: 96px;"></div>
+                    </div>
+                </div>
+                <div class="scroll-element scroll-y">
+                    <div class="scroll-element_outer">
+                        <div class="scroll-element_size"></div>
+                        <div class="scroll-element_track"></div>
+                        <div class="scroll-bar" style="height: 96px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="transfer_inputs">
+                <div class="transfer_header">给客服留言</div>
+                <div class="transfer_input">
+                    <label class="input_wrap" for="transfer_input">
+                        <input type="text" id="transfer_input">
+                        <span class="input_count ">
+                            <span>0</span>
+                            <span>/</span>
+                            <span>100</span>
+                        </span>
+                    </label>
+                    <p class="transfer_warn warn" style="display:none;">输入的字数已经超过限制。输入的字数已经超过限制。</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" style="background: rgb(9,187,7);" id="TransferSave">转接</button>
+        <button type="button" class="btn btn-primary" style="background: rgb(9,187,7);" id="TransferClose">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

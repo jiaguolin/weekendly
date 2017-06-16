@@ -1,0 +1,35 @@
+<div class="modal" id="WordDetailsModal" style="display:block">
+  <div class="modal-dialog" style="margin:165px auto">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close word_details_close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title">留言详情</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-moudle">
+          <div class="formgroup">
+            <label>姓名</label>
+            <input type="text" class="form" disabled="" value="details.name">
+            <label>电话</label>
+            <input type="text" class="form" disabled="" maxlength=11 value="details.mobile">
+          </div>
+          <div class="formgroup">
+            <label>邮箱</label>
+            <input type="email" class="form" disabled="" value="details.email">
+            <label>微信</label>
+            <input type="text" class="form" disabled="" value="details.wechat">
+          </div>
+          <div class="formgroup">
+            <label>留言</label>
+            <textarea type="text" class="text" disabled="">details.message</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" style="background: rgb(9,187,7);" id="WordDetailsSave">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
