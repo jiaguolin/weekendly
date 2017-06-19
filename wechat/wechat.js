@@ -43,6 +43,22 @@ Wechat.prototype.replay = function(req,res,message){
 				console.log('扫描二维码关注：'+ message.EventKey +' '+ message.ticket);
 			}
 			reply = '欢迎关注';
+
+			// 存入粉丝信息.
+			this.fetchUserInfo(message.FromUserName).then(function(data1){
+				console.log('获取用户信息----------');
+				console.log(JSON.stringify(data1));
+
+				var tmp = {'nickename':data1.nickname, 'openid':data1.openid, 'province':data1.province, 'city':data1.city,'headimgurl':data1.headimgurl };
+				console.log(tmp);
+				WechatUser.create(tmp, function(err, newUser){
+					if(err) throw err;
+					console.log('存入微信用户成功!!');
+				});
+				// this.fetchUserInfo([message.FromUserName]).then(function(data2){
+				// 	console.log(JSON.stringify(data2));
+				// }); 
+			});
 		}else if(message.Event === 'unsubscribe'){
 			this.body = '';
 			reply = ''
@@ -58,26 +74,7 @@ Wechat.prototype.replay = function(req,res,message){
 		});
 
 		var content = message.Content;
-		if(content === '1'){
-			// Message.
-			// this.fetchUserInfo(message.FromUserName).then(function(data1){
-			// 	console.log('获取用户信息----------');
-			// 	console.log(JSON.stringify(data1));
-
-			// 	var tmp = {'nickename':data1.nickname, 'openid':data1.openid, 'province':data1.province, 'city':data1.city };
-			// 	console.log(tmp);
-			// 	WechatUser.create(tmp, function(err, newUser){
-			// 		if(err) throw err;
-			// 		console.log('存入微信用户成功!!');
-			// 	});
-			// 	//	批量获取首先要取到所有的openid.
-			// 	this.fetchUserInfo([message.FromUserName]).then(function(data2){
-			// 		console.log(JSON.stringify(data2));
-			// 	}); 
-				
-			// });
-		}
-        else if (content === '2'){
+         if (content === '2'){
             // console.log('获取所有用户openid ---------\n');
             // this.getUserOpenIds().then(function(data1){
 			// 	console.log(JSON.stringify(data1));

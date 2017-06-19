@@ -7,11 +7,12 @@ var UserSchema = new Mongoose.Schema({
     openid: { type:String, required: true ,unique: true},
     nickename: { type: String, required: true},
     province: { type: String, default: null },
-    city:  { type: String, default: null}
+    city:  { type: String, default: null},
+    headimgurl : {type: String, default:null}
 });
 
 // Create a user model
-var userModel = Mongoose.model('wechatUser', UserSchema);
+var userModel = Mongoose.model('o_wechatUser', UserSchema);
 
 module.exports = userModel;
 
