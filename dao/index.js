@@ -10,6 +10,7 @@ var MD5 = function(secret){
 
 module.exports={
     use:function(req, res, next){
+		console.log('req de url :' + req.url)
 		var url = req.url.split('?')[0];
 		console.log(url)
 		switch(url){

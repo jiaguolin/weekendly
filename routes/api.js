@@ -4,7 +4,6 @@ var index = require('../dao/index');
 var kefu = require('../dao/kefu');
 var user = require('../dao/user');
 
-var weixin = require('../wechat/weixin');
 /* 路由拦截 */
 router.use(function (req, res, next) {
   index.use(req, res, next);
@@ -69,7 +68,6 @@ router.get('/loadUserWord', function(req, res, next) {
   index.loadUserWord(req, res, next)
 });
 
-router.use('/weixin',weixin);
 
 
 

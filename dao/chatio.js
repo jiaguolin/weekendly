@@ -22,6 +22,7 @@ module.exports={
 		if(!uid || !name || typeof onlineUsers[uid] !== 'undefined'){
 			this.emit('error');
 			return;
+
 		}
 
 		//将 UID 记录至当前的 socket 中, 以便在 disconnect 时使用
