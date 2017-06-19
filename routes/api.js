@@ -113,4 +113,14 @@ router.get('/test', function(req, res, next) {
 router.get('/gettest', function(req, res, next) {
   kefu.get(req, res, next)
 });
+
+// //wechat
+// router.get('/getWechatMessage',function(req,res,next){
+//   wechat.getWechatMessage(req,res,next);
+// });
+
+// router.post('/sendMessageToWechatUser',function(req,res,next){
+//   wechat.customReply(req,res,next);   
+// });
+
 module.exports = router;

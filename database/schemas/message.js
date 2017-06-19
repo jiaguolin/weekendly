@@ -9,6 +9,7 @@ var MessageSchema = new Mongoose.Schema({
     MsgType: { type: String, required: true},
     Content: { type: String, required: true},
     MsgId: { type:String, required: true ,unique: true} 
+    // status:{type:Number,required: true}
 
 
     //消息类型

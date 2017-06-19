@@ -158,7 +158,9 @@ Wechat.prototype.updateAccessToken = function(){
 	console.log(url);
 	return new Promise(function(resolve,reject){
 		request({url:url,json:true}).then(function(response){
-			var data = response[0].body;
+			console.log(response[0])
+			var data = response.body;
+			console.log(response.body)
 			var now = new Date().getTime();
 			var expires_in = now + (data.expires_in - 20) * 1000;   //考虑到网络延迟、服务器计算时间,故提前20秒发起请求
 			data.expires_in = expires_in;

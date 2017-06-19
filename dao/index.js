@@ -2,6 +2,9 @@ var db = require('../module/index');
 var logs = require('./loger').logger;
 var crypto = require('crypto');
 var secret = 'abcdefg';
+
+var Message = require('../models/message');
+
 var MD5 = function(secret){
 		return crypto.createHash('md5')
     .update(secret)
@@ -85,16 +88,21 @@ module.exports={
 	    });
 	},
 	index:function(req, res, next){
-
-		// res.render()
-		//todo:  
-		// wechat.getNewMessage
-		res.render('index', {'number':3,'laterNumber':3});
+		//todo :  训练moogose用法.
+		// Message.findByGroup(function(err,message){
+		// 	if(err){
+		// 		console.log(err)
+		// 		res.json({code:50000,msg:'服务器内部错误'});
+		// 		res.end();
+		// 		return
+		// 	}else{
+		// 		console.log(message)
+		// 		res.render('index', {'number':3,'waitNumber':message.num_tutorial});
+		// 	}
+		// })
+		res.render('index', {'number':1,'waitNumber':5});
 	},
 	loadWaitList:function(req, res, next){
-
-		//nuer 
-
 		res.render('waitlist', {});
 	},
 	loadChatWindow:function(req, res, next){
