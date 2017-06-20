@@ -369,6 +369,7 @@
   }
   .table-wrapper{
     margin-top: 10px;
+    overflow: auto;
   }
   .table-thead th{
     padding-left: 8px;

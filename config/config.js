@@ -16,8 +16,8 @@ module.exports={
 	},
   //mongodb配置
 	// mongodb:'mongodb://maintenance:Sinicnet123456@10.30.57.194:27021,10.30.248.106:27021,10.30.57.196:27021/super_maintenance',
-  // mongodb:'mongodb://service:123456@10.0.0.39:27017/online_service',
-	mongodb:'mongodb://service:123456@123.56.45.82:27017/online_service',
+  mongodb:'mongodb://service:123456@123.56.45.82:27017/online_service',
+	// mongodb:'mongodb://127.0.0.1:27017/test',
   //session配置
 	sessionConfig:{
 		cookie: {

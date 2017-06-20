@@ -9,16 +9,17 @@
             <th>上次接待客服</th>
             <th>操作</th>
         </thead>
-        <tbody>
-            <tr style="height:60px">
+         <% for(var i=0; i<messages.length; i++) { %>
+            <tbody>
+                <tr style="height:60px">
                 <td style="position:relative;">
                     <input type="checkbox" name="allbox">
-                    <img src="http://wx.qlogo.cn/mmhead/Q3auHgzwzM5KGW9yC3NfXsFEvHmqnveGahss99o1SibHlicBR2fEAAYg/132" class="user-photo">
-                    <span class="top-text user-name">用户名称</span>
-                    <span class="bottom-text massage-contnet">[2条]你好啊</span>
+                    <img src=<%=messages[i].headImage%> class="user-photo">
+                    <span class="top-text user-name"><%=messages[i].nikename%></span>
+                    <span class="bottom-text massage-contnet">消息:<%=messages[i].content%></span>
                 </td>
                 <td style="position:relative;">
-                    <span class="top-text">今天</span>
+                    <span class="top-text"><%=messages[i].creattime%></span>
                     <span class="bottom-text">48小时后过期</span>
                 </td>
                 <td style="position:relative;">
@@ -28,7 +29,8 @@
                 <td style="position:relative;">
                     <span class="top-text btn-access" >接入</span>
                 </td>
-            </tr>
-        </tbody>
+             </tr>
+            </tbody>
+         <% } %>
     </table>
 </div>

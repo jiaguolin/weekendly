@@ -15,11 +15,16 @@ var findOne = function (data, callback){
 var findByGroup = function(callback){
 	//todo : get message group by
 	messageModle.aggregate([{ $group: {_id: '$FromUserName',num_tutorial : {$sum : 1}}}]).exec(callback)
+	// messageModle.find(callback)
 }
 
+var findAll = function(callback){
+	messageModle.find(callback)
+}
 
 module.exports = { 
 	create, 
 	findOne,
-	findByGroup
+	findByGroup,
+	findAll
 };
