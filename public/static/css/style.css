@@ -626,6 +626,7 @@
   margin-bottom: 15px;
 }
 .scroll-wrapper{
+  width: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -747,8 +748,8 @@
   }
   .scroll-wrapper{
     position: relative;
-    overflow: hidden;
-    width: 949px;
+    overflow: auto;
+    width: 700px;
     border-bottom: 1px solid #dcdcdc;
     /*overflow-y:scroll;*/
     height: 495px;

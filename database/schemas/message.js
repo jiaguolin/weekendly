@@ -1,14 +1,15 @@
 'use strict';
 
-var Mongoose 	= require('mongoose');
+var Mongoose = require('mongoose');
 
 var MessageSchema = new Mongoose.Schema({
-    ToUserName: { type: String, required: true}, //微信公众号 微信号
-    FromUserName: { type: String, required: true}, //wechat user openid
-    CreateTime: { type: Number, required: true},
-    MsgType: { type: String, required: true},
-    Content: { type: String, required: true},
-    MsgId: { type:String, required: true ,unique: true} 
+    ToUserName: { type: String, required: true }, //微信公众号 微信号
+    FromUserName: { type: String, required: true }, //wechat user openid
+    CreateTime: { type: Number, required: true },
+    MsgType: { type: String, required: true },
+    Content: { type: String, required: true },
+    MsgId: { type: String, required: true, unique: true },
+    channel: { type: String, require: true }
     // status:{type:Number,required: true}
 
 

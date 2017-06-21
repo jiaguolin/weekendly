@@ -2,6 +2,7 @@ var db = require('../module/index');
 var logs = require('./loger').logger;
 var crypto = require('crypto');
 var secret = 'abcdefg';
+var sd = require('silly-datetime');
 
 var Message = require('../models/message');
 var WechatUser = require('../models/wechatUser')
@@ -103,11 +104,54 @@ module.exports = {
 		})
 		// res.render('index', { 'number': 1, 'waitNumber': 5 });
 	},
+
 	loadWaitList: function (req, res, next) {
-		res.render('waitlist', {});
+
+		//   <span class="con_content_nick"><%=wechatName%></span>
+		//             <span class="con_message_state"><%=messageCount%></span>
+		res.render('waitlist', {
+			'wechatName': 'jiaguolin',
+			'messageCount': '20',
+			'headImageUrl': 'http://wx.qlogo.cn/mmopen/PiajxSqBRaEL0UbZahSfqZvHmYWS3I17j6u3kPrkPtD8gmtP0ejWZbJVUSwiaSWmA9whLCg9jgucfPROCLounnJw/0'
+		});
 	},
 	loadChatWindow: function (req, res, next) {
-		res.render('chatwindow', {});
+		Message.findAll(function (err, result) {
+			if (err) {
+				console.log(err)
+				res.json({ code: 50000, msg: '服务器内部错误' });
+				res.end();
+				return
+			} else {
+				var tmp = []
+				var p = []
+				for (let i = 0; i < result.length; i++) {
+					p[i] = WechatUser.findByOpenId(result[i].FromUserName)
+				}
+				Promise.all(p).then(function (userItem) {
+					for (var i = 0; i < userItem.length; i++) {
+						if (userItem[i]) {
+							var item = {
+								'headImageUrl': userItem[i].headimgurl,
+								'from_self': result[i].FromUserName === 'jiaguolin' ? 'from_self' : '',
+								'messageContent': result[i].Content,
+								'creattime': sd.format(result[i].CreateTime, 'YYYY-MM-DD HH:mm')
+							}
+							tmp.push(item)
+						}
+					}
+					console.log(tmp)
+					res.render('chatwindow', { 'messages': tmp, 'nickename': 'jiaguolin' }); //客服ID.
+				}, function (reject) {
+					console.log(reject)
+					console.log(error)
+					res.json({ code: 50000, msg: '服务器内部错误' });
+					res.end();
+					return
+				})
+			}
+		})
+
 	},
 	loadKefuTransfer: function (req, res, next) {
 		res.render('kefutransfer', {});
@@ -117,7 +161,7 @@ module.exports = {
 		res.render('waitaccess', {});
 	},
 	loadWaitAccessList: function (req, res, next) {
-		Message.findAll(function (err, message) {
+		Message.findFromWechat(function (err, message) {
 			if (err) {
 				console.log(err)
 				res.json({ code: 50000, msg: '服务器内部错误' });

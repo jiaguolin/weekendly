@@ -4,6 +4,8 @@ var index = require('../dao/index');
 var kefu = require('../dao/kefu');
 var user = require('../dao/user');
 
+var wechat = require('../dao/wechat')
+
 /* 路由拦截 */
 router.use(function (req, res, next) {
   index.use(req, res, next);
@@ -119,8 +121,8 @@ router.get('/gettest', function(req, res, next) {
 //   wechat.getWechatMessage(req,res,next);
 // });
 
-// router.post('/sendMessageToWechatUser',function(req,res,next){
-//   wechat.customReply(req,res,next);   
-// });
+router.post('/sendMessageToWechatUser',function(req,res,next){
+  wechat.customReply(req,res,next);   
+});
 
 module.exports = router;
